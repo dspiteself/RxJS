@@ -1,0 +1,6 @@
+{
+	  "id": "sample",
+	    "paths": "Rx",
+	    "mode": "RAW",
+	      "inputs": "Rx/Scheduler.js"
+}

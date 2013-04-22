@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+	<body>
+
+		<script src="http://localhost:9810/compile?id=sample">
+		</script>
+		<script src="Rx/Observable.js">
+			  </script>
+		<h1>My First Heading</h1>
+
+		<p>My first paragraph.</p>
+
+	</body>
+</html>
+
