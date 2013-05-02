@@ -6,8 +6,8 @@ goog.require("Rx.Observer")
          * @constructor
          * @prviate
          */
-         Rx.testing.MockObserver=function(scheduler) {
-            goog.base(this);
+        function MockObserver(scheduler) {
+            _super.call(this);
             this.scheduler = scheduler;
             this.messages = [];
         }
@@ -18,7 +18,7 @@ goog.inherits(Rx.testing.MockObserver, Observer);
          * @memberOf MockObserverPrototype#
          * @prviate
          */
-        Rx.testing.MockObserver.prototype.onNext = function (value) {
+        MockObserverPrototype.onNext = function (value) {
             this.messages.push(new Recorded(this.scheduler.clock, Notification.createOnNext(value)));
         };
 
@@ -26,7 +26,7 @@ goog.inherits(Rx.testing.MockObserver, Observer);
          * @memberOf MockObserverPrototype#
          * @prviate
          */
-        Rx.testing.MockObserver.prototype.onError = function (exception) {
+        MockObserverPrototype.onError = function (exception) {
             this.messages.push(new Recorded(this.scheduler.clock, Notification.createOnError(exception)));
         };
 
@@ -34,8 +34,7 @@ goog.inherits(Rx.testing.MockObserver, Observer);
          * @memberOf MockObserverPrototype#
          * @prviate
          */
-        Rx.testing.MockObserver.prototype.onCompleted = function () {
+        MockObserverPrototype.onCompleted = function () {
             this.messages.push(new Recorded(this.scheduler.clock, Notification.createOnCompleted()));
         };
-
 

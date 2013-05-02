@@ -1114,7 +1114,7 @@ Rx.Observable.prototype.takeUntil = function(other) {
 	return new Rx.Internals.AnonymousObservable(function(observer) {
 		return new CompositeDisposable(source.subscribe(observer), other
 				.subscribe(observer.onCompleted.bind(observer),
-						observer.onError.bind(observer), noop));
+						observer.onError.bind(observer), goog.nullFunction));
 	});
 };
 
@@ -1461,7 +1461,7 @@ Rx.Observable.prototype.finallyAction = function(action) {
 Rx.Observable.prototype.ignoreElements = function() {
 	var source = this;
 	return new Rx.Internals.AnonymousObservable(function(observer) {
-		return source.subscribe(noop, observer.onError.bind(observer),
+		return source.subscribe(goog.nullFunction, observer.onError.bind(observer),
 				observer.onCompleted.bind(observer));
 	});
 };
@@ -1954,7 +1954,7 @@ Rx.Observable.prototype.groupByUntil = function(keySelector, elementSelector,
 														.setDisposable(duration
 																.take(1)
 																.subscribe(
-																		noop,
+																		goog.nullFunction,
 																		function(
 																				exn) {
 																			for (w in map) {

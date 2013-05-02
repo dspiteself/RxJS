@@ -459,7 +459,7 @@ Rx.Scheduler.currentThread = (function() {
 		if (!queue) {
 			t = new Trampoline();
 			try {
-				queue.enqueue(si);
+				queue.enqueue(si.dueTime,si);
 				t.run();
 			} catch (e) {
 				throw e;
@@ -467,7 +467,7 @@ Rx.Scheduler.currentThread = (function() {
 				t.dispose();
 			}
 		} else {
-			queue.enqueue(si);
+			queue.enqueue(si.dueTime,si);
 		}
 		return si.disposable;
 	}

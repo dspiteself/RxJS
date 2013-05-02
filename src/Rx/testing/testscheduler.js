@@ -37,7 +37,7 @@ goog.require("Rx.testing.MockObserver")
 goog.inherits(Rx.TestScheduler, Rx.VirtualTimeScheduler);
 /**
  * Schedules an action to be executed at the specified virtual time.
- *
+ * 
  * @param state
  *            State passed to the action to be executed.
  * @param dueTime
@@ -56,7 +56,7 @@ Rx.TestScheduler.prototype.scheduleAbsoluteWithState = function(state, dueTime,
 };
 /**
  * Adds a relative virtual time to an absolute virtual time value.
- *
+ * 
  * @param absolute
  *            Absolute virtual time value.
  * @param relative
@@ -68,7 +68,7 @@ Rx.TestScheduler.prototype.add = function(absolute, relative) {
 };
 /**
  * Converts the absolute virtual time value to a DateTimeOffset value.
- *
+ * 
  * @param absolute
  *            Absolute virtual time value to convert.
  * @return Corresponding DateTimeOffset value.
@@ -78,7 +78,7 @@ Rx.TestScheduler.prototype.toDateTimeOffset = function(absolute) {
 };
 /**
  * Converts the TimeSpan value to a relative virtual time value.
- *
+ * 
  * @param timeSpan
  *            TimeSpan value to convert.
  * @return Corresponding relative virtual time value.
@@ -90,7 +90,7 @@ Rx.TestScheduler.prototype.toRelative = function(timeSpan) {
  * Starts the test scheduler and uses the specified virtual times to invoke the
  * factory function, subscribe to the resulting sequence, and dispose the
  * subscription.
- *
+ * 
  * @param create
  *            Factory method to create an observable sequence.
  * @param created
@@ -127,7 +127,7 @@ Rx.TestScheduler.prototype.startWithTiming = function(create, created, subscribe
  * Starts the test scheduler and uses the specified virtual time to dispose the
  * subscription to the sequence obtained through the factory function. Default
  * virtual times are used for factory invocation and sequence subscription.
- *
+ * 
  * @param create
  *            Factory method to create an observable sequence.
  * @param disposed
@@ -144,7 +144,7 @@ Rx.TestScheduler.prototype.startWithDispose = function(create, disposed) {
  * Starts the test scheduler and uses default virtual times to invoke the
  * factory function, to subscribe to the resulting sequence, and to dispose the
  * subscription</see>.
- *
+ * 
  * @param create
  *            Factory method to create an observable sequence.
  * @return Observer with timestamped recordings of notification messages that
@@ -158,7 +158,7 @@ Rx.TestScheduler.prototype.startWithCreate = function(create) {
 /**
  * Creates a hot observable using the specified timestamped notification
  * messages either as an array or arguments.
- *
+ * 
  * @param messages
  *            Notifications to surface through the created sequence at their
  *            specified absolute virtual times.
@@ -172,7 +172,7 @@ Rx.TestScheduler.prototype.createHotObservable = function() {
 /**
  * Creates a cold observable using the specified timestamped notification
  * messages either as an array or arguments.
- *
+ * 
  * @param messages
  *            Notifications to surface through the created sequence at their
  *            specified virtual time offsets from the sequence subscription
@@ -187,7 +187,7 @@ Rx.TestScheduler.prototype.createColdObservable = function() {
 /**
  * Creates an observer that records received notification messages and
  * timestamps those.
- *
+ * 
  * @return Observer that can be used to assert the timing of received
  *         notifications.
  */

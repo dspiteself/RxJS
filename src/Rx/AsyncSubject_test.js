@@ -4,6 +4,7 @@ goog.require("Rx.Notification")
 goog.require("Rx.AnonymousSubject")
 goog.require('Rx.ReactiveTest')
 goog.require('Rx.TestScheduler')
+
 goog.require('goog.testing.jsunit');
 
 
@@ -20,6 +21,35 @@ var setUpPage = function() {
     onError = Rx.ReactiveTest.onError
     onCompleted = Rx.ReactiveTest.onCompleted
     subscribe = Rx.ReactiveTest.subscribe;
+    var slice = Array.prototype.slice;
+
+    function defaultComparer(x, y) {
+		if (!y.equals) {
+			return x === y;
+		}
+		return x.equals(y);
+    }
+
+	function createMessage(actual, expected) {
+			return 'Expected: [' + expected.toString() + ']\r\nActual: [' + actual.toString() + ']';
+	}
+
+	function areElementsEqual(expected, actual, comparer, message) {
+		var i, isOk = true;
+		comparer || (comparer = defaultComparer);
+		console.log("test",expected,actual,comparer)
+		assertFalse(expected.length !== actual.length) 
+		for (i = 0; i < expected.length; i++) {
+			assertTrue(comparer(expected[i], actual[i]));
+			
+		}
+		//ok(isOk, message || createMessage(expected, actual));
+	}
+
+    Array.prototype.assertEqual = function () {
+        var actual = slice.call(arguments);
+        return areElementsEqual(this, actual, defaultComparer);
+    };
 };
 
 

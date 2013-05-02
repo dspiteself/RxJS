@@ -9,7 +9,7 @@ goog.require("Rx.Internals.ScheduledItem")
 /**
  * Creates a new virtual time scheduler with the specified initial clock value
  * and absolute time comparer.
- *
+ * 
  * @constructor
  * @param {Number}
  *            initialClock Initial value for the clock.
@@ -47,7 +47,7 @@ Rx.VirtualTimeScheduler.invokeAction=function (scheduler, action) {
 /**
  * Schedules a periodic piece of work by dynamically discovering the scheduler's
  * capabilities. The periodic task will be emulated using recursive scheduling.
- *
+ * 
  * @memberOf VirtualTimeScheduler#
  * @param {Mixed}
  *            state Initial state passed to the action upon the first iteration.
@@ -66,7 +66,7 @@ Rx.VirtualTimeScheduler.prototype.schedulePeriodicWithState = function(state,
 
 /**
  * Schedules an action to be executed after dueTime.
- *
+ * 
  * @memberOf VirtualTimeScheduler#
  * @param {Mixed}
  *            state State passed to the action to be executed.
@@ -85,7 +85,7 @@ Rx.VirtualTimeScheduler.prototype.scheduleRelativeWithState = function(state,
 
 /**
  * Schedules an action to be executed at dueTime.
- *
+ * 
  * @memberOf VirtualTimeScheduler#
  * @param {Number}
  *            dueTime Relative time after which to execute the action.
@@ -100,7 +100,7 @@ Rx.VirtualTimeScheduler.prototype.scheduleRelative = function(dueTime, action) {
 
 /**
  * Starts the virtual time scheduler.
- *
+ * 
  * @memberOf VirtualTimeScheduler#
  */
 Rx.VirtualTimeScheduler.prototype.start = function() {
@@ -123,7 +123,7 @@ Rx.VirtualTimeScheduler.prototype.start = function() {
 
 /**
  * Stops the virtual time scheduler.
- *
+ * 
  * @memberOf VirtualTimeScheduler#
  */
 Rx.VirtualTimeScheduler.prototype.stop = function() {
@@ -133,7 +133,7 @@ Rx.VirtualTimeScheduler.prototype.stop = function() {
 /**
  * Advances the scheduler's clock to the specified time, running all work till
  * that point.
- *
+ * 
  * @param {Number}
  *            time Absolute time to advance the scheduler's clock to.
  */
@@ -166,7 +166,7 @@ Rx.VirtualTimeScheduler.prototype.advanceTo = function(time) {
 /**
  * Advances the scheduler's clock by the specified relative time, running all
  * work scheduled for that timespan.
- *
+ * 
  * @memberOf VirtualTimeScheduler#
  * @param {Number}
  *            time Relative time to advance the scheduler's clock by.
@@ -185,7 +185,7 @@ Rx.VirtualTimeScheduler.prototype.advanceBy = function(time) {
 
 /**
  * Advances the scheduler's clock by the specified relative time.
- *
+ * 
  * @memberOf VirtualTimeScheduler#
  * @param {Number}
  *            time Relative time to advance the scheduler's clock by.
@@ -202,7 +202,7 @@ Rx.VirtualTimeScheduler.prototype.sleep = function(time) {
 
 /**
  * Gets the next scheduled item to be executed.
- *
+ * 
  * @memberOf VirtualTimeScheduler#
  * @returns {ScheduledItem} The next scheduled item.
  */
@@ -221,7 +221,7 @@ Rx.VirtualTimeScheduler.prototype.getNext = function() {
 
 /**
  * Schedules an action to be executed at dueTime.
- *
+ * 
  * @memberOf VirtualTimeScheduler#
  * @param {Scheduler}
  *            scheduler Scheduler to execute the action on.
@@ -238,7 +238,7 @@ Rx.VirtualTimeScheduler.prototype.scheduleAbsolute = function(dueTime, action) {
 
 /**
  * Schedules an action to be executed at dueTime.
- *
+ * 
  * @memberOf VirtualTimeScheduler#
  * @param {Mixed}
  *            state State passed to the action to be executed.
