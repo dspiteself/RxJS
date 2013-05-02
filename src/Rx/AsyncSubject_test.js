@@ -38,10 +38,10 @@ var setUpPage = function() {
 		var i, isOk = true;
 		comparer || (comparer = defaultComparer);
 		console.log("test",expected,actual,comparer)
-		assertFalse(expected.length !== actual.length) 
+		assertTrue(expected.length === actual.length)
 		for (i = 0; i < expected.length; i++) {
 			assertTrue(comparer(expected[i], actual[i]));
-			
+
 		}
 		//ok(isOk, message || createMessage(expected, actual));
 	}
