@@ -1,6 +1,7 @@
 goog.provide('Rx.TestScheduler')
 goog.require('Rx.VirtualTimeScheduler')
 goog.require("Rx.HotObservable")
+goog.require('Rx.MockObserver')
 // Defaults
     var Observer = Rx.Observer,
         Observable = Rx.Observable,
@@ -191,5 +192,5 @@ Rx.TestScheduler.prototype.createColdObservable = function() {
  *         notifications.
  */
 Rx.TestScheduler.prototype.createObserver = function() {
-	return new MockObserver(this);
+	return new Rx.MockObserver(this);
 };

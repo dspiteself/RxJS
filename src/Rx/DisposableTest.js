@@ -88,11 +88,11 @@
         ok(disposed);
     });
 
-    function noop() { }
+    function goog.nullFunction() { }
 
     test('GroupDisposable_Contains', function () {
-        var d1 = Disposable.create(noop),
-            d2 = Disposable.create(noop),
+        var d1 = Disposable.create(goog.nullFunction),
+            d2 = Disposable.create(goog.nullFunction),
             g = new CompositeDisposable(d1, d2);
         equal(2, g.length);
         ok(g.contains(d1));
@@ -100,8 +100,8 @@
     });
 
     test('GroupDisposable_Add', function () {
-        var d1 = Disposable.create(noop),
-            d2 = Disposable.create(noop),
+        var d1 = Disposable.create(goog.nullFunction),
+            d2 = Disposable.create(goog.nullFunction),
             g = new CompositeDisposable(d1);
         equal(1, g.length);
         ok(g.contains(d1));

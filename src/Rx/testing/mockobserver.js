@@ -1,42 +1,36 @@
-    /** @private */
-    var MockObserver = (function (_super) {
-        inherits(MockObserver, _super);
+goog.provide('Rx.MockObserver')
+goog.require('Rx.Observer')
 
-        /*
-         * @constructor
-         * @prviate
-         */
-        function MockObserver(scheduler) {
-            _super.call(this);
-            this.scheduler = scheduler;
-            this.messages = [];
-        }
+/*
+ * @constructor @private
+ */
+Rx.MockObserver = function(scheduler) {
+	goog.base(this);
+	this.scheduler = scheduler;
+	this.messages = [];
+}
+goog.inherits(Rx.MockObserver, Rx.Observer);
 
-        var MockObserverPrototype = MockObserver.prototype;
+/*
+ * @memberOf Rx.MockObserver.prototype# @private
+ */
+Rx.MockObserver.prototype.onNext = function(value) {
+	this.messages.push(new Recorded(this.scheduler.clock, Notification
+			.createOnNext(value)));
+};
 
-        /*
-         * @memberOf MockObserverPrototype#
-         * @prviate
-         */
-        MockObserverPrototype.onNext = function (value) {
-            this.messages.push(new Recorded(this.scheduler.clock, Notification.createOnNext(value)));
-        };
+/*
+ * @memberOf Rx.MockObserver.prototype# @private
+ */
+Rx.MockObserver.prototype.onError = function(exception) {
+	this.messages.push(new Recorded(this.scheduler.clock, Notification
+			.createOnError(exception)));
+};
 
-        /*
-         * @memberOf MockObserverPrototype#
-         * @prviate
-         */
-        MockObserverPrototype.onError = function (exception) {
-            this.messages.push(new Recorded(this.scheduler.clock, Notification.createOnError(exception)));
-        };
-
-        /*
-         * @memberOf MockObserverPrototype#
-         * @prviate
-         */
-        MockObserverPrototype.onCompleted = function () {
-            this.messages.push(new Recorded(this.scheduler.clock, Notification.createOnCompleted()));
-        };
-
-        return MockObserver;
-    })(Observer);
+/*
+ * @memberOf Rx.MockObserver.prototype# @private
+ */
+Rx.MockObserver.prototype.onCompleted = function() {
+	this.messages.push(new Recorded(this.scheduler.clock, Notification
+			.createOnCompleted()));
+};

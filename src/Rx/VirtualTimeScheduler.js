@@ -1,5 +1,6 @@
 goog.provide("Rx.VirtualTimeScheduler")
 goog.require("Rx.Scheduler")
+goog.require('Rx.ScheduledItem')
 goog.require("goog.structs.PriorityQueue")
 /** Provides a set of extension methods for virtual time scheduling. */
 
@@ -203,7 +204,7 @@ Rx.VirtualTimeScheduler.prototype.sleep = function(time) {
  * Gets the next scheduled item to be executed.
  * 
  * @memberOf VirtualTimeScheduler#
- * @returns {ScheduledItem} The next scheduled item.
+ * @returns {Rx.ScheduledItem} The next scheduled item.
  */
 Rx.VirtualTimeScheduler.prototype.getNext = function() {
 	var next;
@@ -253,7 +254,7 @@ Rx.VirtualTimeScheduler.prototype.scheduleAbsoluteWithState = function(state,
 	var self = this, run = function(scheduler, state1) {
 		self.queue.remove(si);
 		return action(scheduler, state1);
-	}, si = new ScheduledItem(self, state, run, dueTime, self.comparer);
+	}, si = new Rx.ScheduledItem(self, state, run, dueTime, self.comparer);
 	self.queue.enqueue(si);
 	return si.disposable;
 };
