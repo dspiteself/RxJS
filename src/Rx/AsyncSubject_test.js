@@ -36,6 +36,7 @@ var testInfinite=function () {
             onNext(520, 7),
             onNext(630, 8),
             onNext(710, 9),
+
             onNext(870, 10),
             onNext(940, 11),
             onNext(1020, 12)
